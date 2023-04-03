@@ -14,6 +14,10 @@ export default function WeightForm() {
     const dateString = newDate.toString();
 
     console.log(dateString, +weight);
+
+    // Reset
+    setDate("");
+    setWeight("");
   }
 
   return (
