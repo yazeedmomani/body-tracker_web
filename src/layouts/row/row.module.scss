@@ -1,0 +1,35 @@
+.row {
+  width: 100%;
+  height: 8rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+
+  &_time {
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-p);
+  }
+
+  &_date {
+    font-size: var(--font-size-h5);
+  }
+
+  &_firstArg,
+  &_secondArg {
+    font-size: var(--font-size-h4);
+  }
+
+  &_trashBtn {
+    background-color: transparent;
+    border: none;
+  }
+
+  &_trashIcon {
+    color: darkred;
+    font-size: var(--font-size-h4);
+    vertical-align: middle;
+  }
+}

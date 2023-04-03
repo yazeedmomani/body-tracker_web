@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Nav from "./layouts/nav";
+import Row from "./layouts/row";
+import styles from "./app.module.scss";
 
 export default function App() {
   const [isWeight, setIsWeight] = useState(true);
@@ -7,7 +9,9 @@ export default function App() {
   return (
     <>
       <Nav setIsWeight={setIsWeight} />
-      {isWeight ? <h1>Weight</h1> : <h1>BP</h1>}
+      <div className={styles.rowContainer}>
+        <Row />
+      </div>
     </>
   );
 }
