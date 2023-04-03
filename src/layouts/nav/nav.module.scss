@@ -16,6 +16,7 @@
     color: #333;
     font-weight: var(--font-weight-bold);
     font-size: 1.8rem;
+    transition: all 500ms ease;
 
     &:hover {
       background-color: #ccc;

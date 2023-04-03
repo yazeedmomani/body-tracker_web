@@ -1,3 +1,7 @@
-.rowContainer{
-    padding: 1.2rem 2.4rem
+.rowContainer {
+  padding: 1.2rem 2.4rem;
+
+  &_item {
+    margin-bottom: 1.2rem;
+  }
 }
