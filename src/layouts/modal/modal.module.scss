@@ -1,0 +1,19 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-backdrop);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.4rem;
+  z-index: 1;
+
+  &_card {
+    background-color: #eee;
+    width: 100%;
+    padding: 1.2rem 2.4rem;
+  }
+}

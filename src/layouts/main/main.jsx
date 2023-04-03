@@ -1,11 +1,18 @@
-import Row from "../row";
-import AddBtn from "../../components/add-btn";
+import Row from "../../components/row";
+import AddBtn from "../../components/add-btn/";
+import Modal from "../modal/";
 import styles from "./main.module.scss";
+import { useState } from "react";
 
 export default function Main({ isWeight, data }) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <main className={styles.main}>
-      <AddBtn className={styles.main_item} />
+      <AddBtn
+        className={styles.main_item}
+        onClick={setShowModal.bind(null, true)}
+      />
       {data.map((current) => (
         <Row
           className={styles.main_item}
@@ -16,6 +23,12 @@ export default function Main({ isWeight, data }) {
           key={current.id}
         />
       ))}
+      {showModal && (
+        <Modal
+          closeModal={setShowModal.bind(null, false)}
+          isWeight={isWeight}
+        />
+      )}
     </main>
   );
 }
