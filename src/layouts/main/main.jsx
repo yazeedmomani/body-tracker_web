@@ -21,6 +21,7 @@ export default function Main({ isWeight, data }) {
           date={current.date}
           time={current.time}
           key={current.id}
+          id={current.id}
         />
       ))}
       {showModal && (

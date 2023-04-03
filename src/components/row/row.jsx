@@ -1,7 +1,14 @@
 import styles from "./row.module.scss";
 import { BsFillTrashFill } from "react-icons/bs";
 
-export default function Row({ date, time, firstArg, secondArg, className }) {
+export default function Row({
+  date,
+  time,
+  firstArg,
+  secondArg,
+  id,
+  className,
+}) {
   const newDate = new Date(date);
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = newDate.toLocaleDateString("en-US", options);
