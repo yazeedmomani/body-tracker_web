@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/body-metrics-tracker/static/css/main.a96a2dee.css",
+    "main.js": "/body-metrics-tracker/static/js/main.01adb78c.js",
+    "index.html": "/body-metrics-tracker/index.html",
+    "main.a96a2dee.css.map": "/body-metrics-tracker/static/css/main.a96a2dee.css.map",
+    "main.01adb78c.js.map": "/body-metrics-tracker/static/js/main.01adb78c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a96a2dee.css",
+    "static/js/main.01adb78c.js"
+  ]
+}
