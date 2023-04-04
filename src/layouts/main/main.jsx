@@ -4,7 +4,7 @@ import Modal from "../modal/";
 import styles from "./main.module.scss";
 import { useState } from "react";
 
-export default function Main({ isWeight, data }) {
+export default function Main({ isWeight, data, isLoading }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -13,17 +13,21 @@ export default function Main({ isWeight, data }) {
         className={styles.main_item}
         onClick={setShowModal.bind(null, true)}
       />
-      {data.map((current) => (
-        <Row
-          className={styles.main_item}
-          firstArg={current.high || current.weight}
-          secondArg={current.low}
-          date={current.date}
-          time={current.time}
-          key={current.id}
-          id={current.id}
-        />
-      ))}
+      {isLoading ? (
+        <p>loading...</p>
+      ) : (
+        data.map((current) => (
+          <Row
+            className={styles.main_item}
+            firstArg={current.high || current.weight}
+            secondArg={current.low}
+            date={current.date}
+            time={current.time}
+            key={current.id}
+            id={current.id}
+          />
+        ))
+      )}
       {showModal && (
         <Modal
           closeModal={setShowModal.bind(null, false)}
