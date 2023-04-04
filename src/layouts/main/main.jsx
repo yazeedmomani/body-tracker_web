@@ -7,6 +7,9 @@ import { useState } from "react";
 export default function Main({ isWeight, data, isLoading, setDataChanged }) {
   const [showModal, setShowModal] = useState(false);
 
+  const reversedData = data?.slice().reverse();
+  console.log(reversedData);
+
   return (
     <main className={styles.main}>
       <AddBtn
@@ -16,7 +19,7 @@ export default function Main({ isWeight, data, isLoading, setDataChanged }) {
       {isLoading ? (
         <p>loading...</p>
       ) : (
-        data.map((current) => (
+        reversedData.map((current) => (
           <Row
             isWeight={isWeight}
             setDataChanged={setDataChanged}
