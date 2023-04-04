@@ -23,8 +23,8 @@ export default function Main({ isWeight, data, isLoading }) {
             secondArg={current.low}
             date={current.date}
             time={current.time}
-            key={current.id}
-            id={current.id}
+            key={current._id}
+            id={current._id}
           />
         ))
       )}
