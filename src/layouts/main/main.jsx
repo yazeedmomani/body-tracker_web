@@ -4,7 +4,7 @@ import Modal from "../modal/";
 import styles from "./main.module.scss";
 import { useState } from "react";
 
-export default function Main({ isWeight, data, isLoading }) {
+export default function Main({ isWeight, data, isLoading, setDataChanged }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -18,6 +18,8 @@ export default function Main({ isWeight, data, isLoading }) {
       ) : (
         data.map((current) => (
           <Row
+            isWeight={isWeight}
+            setDataChanged={setDataChanged}
             className={styles.main_item}
             firstArg={current.high || current.weight}
             secondArg={current.low}
@@ -30,8 +32,9 @@ export default function Main({ isWeight, data, isLoading }) {
       )}
       {showModal && (
         <Modal
-          closeModal={setShowModal.bind(null, false)}
           isWeight={isWeight}
+          setDataChanged={setDataChanged}
+          closeModal={setShowModal.bind(null, false)}
         />
       )}
     </main>

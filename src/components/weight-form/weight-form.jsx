@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styles from "./weight-form.module.scss";
 
-export default function WeightForm() {
+export default function WeightForm({ setDataChanged }) {
   const [date, setDate] = useState();
   const [weight, setWeight] = useState();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!date || !weight) return;
@@ -13,7 +13,19 @@ export default function WeightForm() {
     const newDate = new Date(date);
     const dateString = newDate.toString();
 
-    console.log(dateString, +weight);
+    const endpoint = `https://dry-shelf-19816.herokuapp.com/api/v1/weight`;
+    await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: dateString,
+        weight: weight,
+      }),
+    });
+
+    setDataChanged((prev) => !prev);
 
     // Reset
     setDate("");

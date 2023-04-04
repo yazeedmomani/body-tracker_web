@@ -6,6 +6,7 @@ export default function App() {
   const [isWeight, setIsWeight] = useState(true);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [dataChanged, setDataChanged] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -19,7 +20,7 @@ export default function App() {
       setLoading(false);
     }
     getData();
-  }, [isWeight]);
+  }, [isWeight, dataChanged]);
 
   console.log(data);
 
@@ -27,8 +28,9 @@ export default function App() {
     <>
       <Nav setIsWeight={setIsWeight} />
       <Main
-        isLoading={loading}
+        setDataChanged={setDataChanged}
         isWeight={isWeight}
+        isLoading={loading}
         data={data}
       />
     </>

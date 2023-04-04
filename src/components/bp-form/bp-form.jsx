@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./bp-form.module.scss";
 
-export default function BPForm() {
+export default function BPForm({ setDataChanged }) {
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [high, setHigh] = useState();
   const [low, setLow] = useState();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!date || !high || !time || !low) return;
@@ -17,7 +17,21 @@ export default function BPForm() {
     const newDate = new Date(date);
     const dateString = newDate.toString();
 
-    console.log(dateString, +high, time, +low);
+    const endpoint = `https://dry-shelf-19816.herokuapp.com/api/v1/bp`;
+    await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: dateString,
+        time: time,
+        high: high,
+        low: low,
+      }),
+    });
+
+    setDataChanged((prev) => !prev);
 
     // Reset
     setDate("");
